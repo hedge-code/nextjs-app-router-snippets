@@ -1,0 +1,352 @@
+{
+  "NextJsAppRouterNotFound": {
+    "prefix": [
+      "appRouteNotFound",
+    ],
+    "description": "Creates a Not Found page for the Next.js App Router.",
+    "include": [
+      "**/app/**/not-found.tsx",
+    ],
+    "body": [
+      "import Link from 'next/link'",
+      "",
+      "export default function NotFound() {",
+      "",
+      "  return (",
+      "    <${1:section}>",
+      "      <h2>Not Found</h2>",
+      "      $0<Link href='/'>Return Home</Link>",
+      "    </${1/(.*?)(\\s.*)?$/$1/}>",
+      "  )",
+      "}",
+      "",
+    ]
+  },
+  "NextJsAppRouterUnauthorized": {
+    "prefix": [
+      "appRouteUnauthorized",
+    ],
+    "description": "Creates an Unauthorized page for the Next.js App Router.",
+    "include": [
+      "**/app/**/unauthorized.tsx",
+    ],
+    "body": [
+      "export default function Unauthorized() {",
+      "",
+      "  return (",
+      "    <${1:section}>",
+      "      <h2>Unauthorized</h2>",
+      "      $0",
+      "    </${1/(.*?)(\\s.*)?$/$1/}>",
+      "  )",
+      "}",
+      "",
+    ]
+  },
+  "NextJsAppRouterForbidden": {
+    "prefix": [
+      "appRouteForbidden",
+    ],
+    "description": "Creates a Forbidden page for the Next.js App Router.",
+    "include": [
+      "**/app/**/forbidden.tsx",
+    ],
+    "body": [
+      "import Link from 'next/link'",
+      "",
+      "export default function Forbidden() {",
+      "",
+      "  return (",
+      "    <${1:section}>",
+      "      <h2>Forbidden</h2>",
+      "      $0<Link href='/'>Return Home</Link>",
+      "    </${1/(.*?)(\\s.*)?$/$1/}>",
+      "  )",
+      "}",
+      "",
+    ]
+  },
+  "NextJsAppRouterError": {
+    "prefix": [
+      "appRouteError",
+    ],
+    "description": "Creates an error boundary component for the Next.js App Router.",
+    "include": [
+      "**/app/**/error.tsx",
+    ],
+    "body": [
+      "'use client'",
+      "",
+      "import { useEffect } from 'react'",
+      "",
+      "export default function Error({",
+      "  error,",
+      "  reset,",
+      "}: {",
+      "  error: Error & { digest?: string }",
+      "  reset: () => void",
+      "}) {",
+      "  useEffect(() => {",
+      "    $1",
+      "  }, [error])",
+      "",
+      "  return (",
+      "    $0",
+      "  )",
+      "}",
+      "",
+    ],
+  },
+  "NextJsAppRouterDefault": {
+    "prefix": [
+      "appRouteSegmentFallback",
+    ],
+    "description": "Creates a fallback route for parallel segments in the App Router.",
+    "include": [
+      "**/app/**/@*[]/default.tsx",
+    ],
+    "body": [
+      "export default function ${1:Home}Default() {",
+      "  ${0:notFound()}",
+      "}",
+      "",
+    ],
+  },
+  "NextJsAppRouterLoading": {
+    "prefix": [
+      "appRouteLoading",
+    ],
+    "description": "Creates a loading UI component for the Next.js App Router.",
+    "include": [
+      "**/app/**/loading.tsx",
+    ],
+    "body": [
+      "export default function ${1:Home}Loading() {",
+      "",
+      "  return (",
+      "    $0",
+      "  )",
+      "}",
+      "",
+    ],
+  },
+  "NextJsAppRouterPageMetadata": {
+    "prefix": [
+      "appRouteMetadata",
+    ],
+    "description": "Creates a page metadata for the Next.js App Router",
+    "include": [
+      "**/app/**/page.tsx",
+    ],
+    "body": [
+      "import { Metadata } from 'next'",
+      "",
+      "export const metadata: Metadata = {",
+      "  title: '${1:title}',",
+      "  description: '${2:description}',",
+      "  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL!),",
+      "  alternates: {",
+      "    canonical: '/',",
+      "    languages: {",
+      "      ${3:'en-US': '/en-US',}",
+      "    },",
+      "  },",
+      "}",
+      "",
+      "$0",
+    ],
+  },
+  "NextJsAppRouterPage": {
+    "prefix": [
+      "appRoutePage",
+    ],
+    "description": "Creates a standard page component for the Next.js App Router.",
+    "include": [
+      "**/app/**/page.tsx",
+    ],
+    "exclude": [
+      "**/app/**/[[]*[]]/page.tsx",
+    ],
+    "body": [
+      "export default function ${1:Home}Page() {",
+      "",
+      "  return (",
+      "    $0",
+      "  )",
+      "}",
+      "",
+    ],
+  },
+  "NextJsAppRouterPageWithSearchParams": {
+    "prefix": [
+      "appRouteSearchPage",
+    ],
+    "description": "Creates a page component that reads search parameters in the Next.js App Router.",
+    "include": [
+      "**/app/**/page.tsx",
+    ],
+    "exclude": [
+      "**/app/**/[[]*[]]/page.tsx",
+    ],
+    "body": [
+      "export default async function ${1:Home}Page({",
+      "  searchParams,",
+      "}: {",
+      "  searchParams: Promise<{ [key: string]: string | string[] | undefined }>",
+      "}) {",
+      "  const { ${2:params} } = await searchParams",
+      "",
+      "  return (",
+      "    $0",
+      "  )",
+      "}",
+      "",
+    ],
+  },
+  "NextJsAppRouterPageWithSlug": {
+    "prefix": [
+      "appRoutePage",
+    ],
+    "description": "Creates a dynamic page component with route params for the Next.js App Router.",
+    "include": [
+      "**/app/**/[[]*[]]/page.tsx",
+    ],
+    "body": [
+      "export default async function ${1:Home}Page({",
+      "  params,",
+      "}: {",
+      "  params: Promise<{ ${2:slug}: string }>",
+      "}) {",
+      "  const { ${2:slug} } = await params",
+      "",
+      "  return (",
+      "    $0",
+      "  )",
+      "}",
+      "",
+    ],
+  },
+  "NextJsAppRouterPageWithSlugAndSearchParams": {
+    "prefix": [
+      "appRouteSearchPage",
+    ],
+    "description": "Creates a dynamic page component with route params that reads search parameters for the Next.js App Router.",
+    "include": [
+      "**/app/**/[[]*[]]/page.tsx",
+    ],
+    "body": [
+      "export default async function ${1:Home}Page({",
+      "  params,",
+      "  searchParams,",
+      "}: {",
+      "  params: Promise<{ ${2:slug}: string }>",
+      "  searchParams: Promise<{ [key: string]: string | string[] | undefined }>",
+      "}) {",
+      "  const { ${2:slug} } = await params",
+      "  const { ${3:params} } = await searchParams",
+      "",
+      "  return (",
+      "    $0",
+      "  )",
+      "}",
+      "",
+    ],
+  },
+  "NextJsAppRouterTemplate": {
+    "prefix": [
+      "appRouteTemplate",
+      "appRouteDynamicLayout"
+    ],
+    "description": "Creates a template component shared across multiple routes in the App Router.",
+    "include": [
+      "**/app/**/template.tsx",
+    ],
+    "body": [
+      "export default function ${1:Home}Template({",
+      "  children,",
+      "}: {",
+      "  children: React.ReactNode",
+      "}) {",
+      "",
+      "  return (",
+      "    <${2:main}>",
+      "      $0{children}",
+      "    </${2/(.*?)(\\s.*)?$/$1/}>",
+      "  )",
+      "}",
+      "",
+    ],
+  },
+  "NextJsAppRouterLayoutMetadata": {
+    "prefix": [
+      "appRouteMetadata",
+    ],
+    "description": "Creates a layout metadata for the Next.js App Router",
+    "include": [
+      "**/app/**/layout.tsx",
+    ],
+    "body": [
+      "import { Metadata } from 'next'",
+      "",
+      "export const metadata: Metadata = {",
+      "  title: {",
+      "    template: '%s | '${1:title}',",
+      "    title: '$1',",
+      "  },",
+      "  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL!),",
+      "  alternates: {",
+      "    canonical: '/',",
+      "    languages: {",
+      "      ${3:'en-US': '/en-US',}",
+      "    },",
+      "  },",
+      "}",
+      "",
+      "$0",
+    ],
+  },
+  "NextJsAppRouterLayout": {
+    "prefix": [
+      "appRouteLayout",
+    ],
+    "description": "Creates a layout component shared across multiple routes in the App Router.",
+    "include": [
+      "**/app/**/layout.tsx",
+    ],
+    "body": [
+      "export default function ${1:Home}Layout({",
+      "  children,",
+      "}: {",
+      "  children: React.ReactNode",
+      "}) {",
+      "",
+      "  return (",
+      "    <${2:main}>",
+      "      $0{children}",
+      "    </${2/(.*?)(\\s.*)?$/$1/}>",
+      "  )",
+      "}",
+      "",
+    ],
+  },
+  "NextJsAppRouterStaticParams": {
+    "prefix": [
+      "appRouteStaticParams",
+    ],
+    "description": "Generates static route parameters for dynamic segments in the App Router, enabling static generation of pages, layouts, or route handlers based on provided data.",
+    "include": [
+      "**/app/**/[[]*[]]/page.tsx",
+      "**/app/**/[[]*[]]/layout.tsx",
+      "**/app/**/[[]*[]]/route.ts",
+    ],
+    "body": [
+      "export async function generateStaticParams() {",
+      "  const ${1:items} = $0",
+      "",
+      "  return $1.map(${2:item} => ({",
+      "    ${3:slug}: $2.$3",
+      "  }))",
+      "}",
+    ],
+  }
+}

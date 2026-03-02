@@ -1,0 +1,48 @@
+{
+  "name": "nextjs-app-router-snippets",
+  "displayName": "Next.js App Router Snippets",
+  "description": "Supercharge your Next.js workflow with snippets crafted for the App Router era.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "HedgeCode"
+  },
+  "homepage": "https://github.com/hedge-code/nextjs-app-router-snippets#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hedge-code/nextjs-app-router-snippets"
+  },
+  "publisher": "HedgeCode",
+  "engines": {
+    "vscode": "^1.109.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "bugs": {
+    "url": "https://github.com/hedge-code/nextjs-app-router-snippets/issues"
+  },
+  "keywords": [
+    "nextjs",
+    "next.js",
+    "snippets",
+    "app router",
+    "tsx",
+    "typescript",
+    "react",
+    "vscode",
+    "extension",
+    "productivity"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/typescriptreact/nextjs.code-snippets"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.7.1"
+  }
+}
