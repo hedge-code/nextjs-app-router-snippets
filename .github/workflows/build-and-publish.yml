@@ -1,5 +1,8 @@
 name: Build and Publish VS Code Extension
 
+permissions:
+  contents: read
+
 on:
   push:
     branches: [ "main" ]
