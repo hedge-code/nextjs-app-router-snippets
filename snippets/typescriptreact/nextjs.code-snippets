@@ -8,8 +8,6 @@
       "**/app/**/not-found.tsx",
     ],
     "body": [
-      "import Link from 'next/link'",
-      "",
       "export default function NotFound() {",
       "",
       "\treturn (",
@@ -52,8 +50,6 @@
       "**/app/**/forbidden.tsx",
     ],
     "body": [
-      "import Link from 'next/link'",
-      "",
       "export default function Forbidden() {",
       "",
       "\treturn (",
@@ -139,8 +135,6 @@
       "**/app/**/page.tsx",
     ],
     "body": [
-      "import { Metadata } from 'next'",
-      "",
       "export const metadata: Metadata = {",
       "\ttitle: '${1:title}',",
       "\tdescription: '${2:description}',",
@@ -286,8 +280,6 @@
       "**/app/**/layout.tsx",
     ],
     "body": [
-      "import { Metadata } from 'next'",
-      "",
       "export const metadata: Metadata = {",
       "\ttitle: {",
       "\t\ttemplate: '%s | '${1:title}',",
@@ -349,5 +341,59 @@
       "}",
       "",
     ],
+  },
+  "NextJsAppRouterAction": {
+    "prefix": [
+      "appRouteAction",
+    ],
+    "description": "Generates a minimal server action with a placeholder for user-defined validation.",
+    "include": [
+      "**/app/**/page.tsx",
+      "**/lib/**/*.ts",
+      "**/app/**/actions.ts",
+      "**/actions/**/*.ts",
+    ],
+    "body": [
+      "export async function ${1:doSomething}(formData: FormData) {",
+      "\t'use server'",
+      "",
+      "\tconst id = formData.get('id')",
+      "\tif (!id) {",
+      "\t\treturn",
+      "\t}",
+      "",
+      "\t${0:redirect(`/somewhere/\\${id\\}`)}",
+      "}",
+      "",
+    ],
+  },
+  "NextJsAppRouterClientComponent": {
+    "prefix": [
+      "appRouteClientComponent",
+    ],
+    "description": "Generates a minimal Client Component",
+    "include": [
+      "**/ui/**/*.tsx",
+      "**/*provider.tsx",
+      "**/components/**/*.tsx",
+    ],
+    "body": [
+      "'use client'",
+      "",
+      "export default function ${1:Modal}({",
+      "\tchildren,",
+      "} : {",
+      "\tchildren: React.ReactNode,",
+      "}) {",
+      "\tconst [isOpen, setIsOpen] = useState(false)",
+      "",
+      "\treturn (",
+      "\t\t<${2:main}>",
+      "\t\t\t$0{children}",
+      "\t\t</${2/(.*?)(\\s.*)?$/$1/}>",
+      "\t)",
+      "}",
+      ""
+    ]
   }
 }
