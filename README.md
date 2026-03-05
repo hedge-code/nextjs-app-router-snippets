@@ -1,40 +1,42 @@
-
 # Next.js App Router Snippets
 
-Supercharge your Next.js workflow with snippets crafted for the App Router era.
+Snippets for faster and consistent development with the Next.js App Router.
 
 ## Features
 
-- **15+ Snippets** – Comprehensive coverage for all major Next.js App Router file types
-- **Context-Aware** – Snippets only appear in relevant files, keeping your suggestions clean and focused
-- **Production Ready** – Scaffolds for pages, layouts, error boundaries, metadata, loading states, and more
-- **TypeScript First** – Native support for TypeScript/React (`.tsx`) files
-- **Time Saving** – Reduce boilerplate and follow Next.js best practices out of the box
-
+- **15+ Snippets** – Coverage for all major App Router file types
+- **Context-Aware** – Snippets appear only in matching file patterns
+- **App Router‑Optimized** — Pages, layouts, error boundaries, metadata, loading states
+- **TypeScript‑Native** – Designed for `.tsx` files
+- **Best‑Practice Templates** – Encourages idiomatic Next.js structure
+- **Time Saving** – Reduce boilerplate and follow Next.js best practices
 
 ## Usage
 
-1. Install this extension from the VS Code Marketplace or manually from the VSIX package.
+1. Install the extension from the VS Code Marketplace or manually from the VSIX package.
 2. Open a TypeScript React (`.tsx`) file in your Next.js project.
-3. Type a snippet prefix (e.g., `appRoutePage`, `appRouteNotFound`) and select the desired snippet from the suggestions.
-4. The snippet will expand into a ready-to-use code template.
+3. Type a snippet prefix (e.g., `appRoutePage`, `appRouteNotFound`).
+4. Select the snippet from IntelliSense.
+5. The snippet will expand into a ready-to-use code template.
 
 ### Context-Aware Snippets
 
-> **Note:** Not every snippet is available in every `.tsx` file. Each snippet is context-aware and will only appear in files that match specific patterns. For example, a snippet for a `not-found.tsx` page will only be suggested in files named `not-found.tsx` within the `app` directory. This ensures you only see relevant snippets for the file you are editing.
+> **Note:** Not every snippet is available in every `.tsx` file. Each snippet is context-aware and will only appear in files that match specific patterns. For example, a snippet for a `not-found.tsx` page will only be suggested in files named `not-found.tsx` within the `app` directory. This keeps IntelliSense clean and ensures snippets appear only where they make sense.
 
 #### Example Snippet Prefixes & Where They Work
 
-- `appRouteNotFound` – Only in `**/app/**/not-found.tsx`
-- `appRouteUnauthorized` – Only in `**/app/**/unauthorized.tsx`
-- `appRouteForbidden` – Only in `**/app/**/forbidden.tsx`
-- `appRouteError` – Only in `**/app/**/error.tsx`
-- `appRouteLoading` – Only in `**/app/**/loading.tsx`
-- `appRoutePage` – In `**/app/**/page.tsx` (standard or dynamic)
-- `appRouteSearchPage` – In `**/app/**/page.tsx` or dynamic page files
-- `appRouteLayout` – Only in `**/app/**/layout.tsx`
-- `appRouteMetadata` – In `**/app/**/page.tsx` or `layout.tsx`
-- `appRouteStaticParams` – In dynamic segment files like `[slug]/page.tsx`, `[slug]/layout.tsx`, or `[slug]/route.ts`
+| Prefix | Where it works |
+| ------ | -------------- |
+| `appRouteNotFound` | `**/app/**/not-found.tsx` |
+| `appRouteUnauthorized` | `**/app/**/unauthorized.tsx` |
+| `appRouteForbidden` | `**/app/**/forbidden.tsx` |
+| `appRouteError` | `**/app/**/error.tsx` |
+| `appRouteLoading` | `**/app/**/loading.tsx` |
+| `appRoutePage` | `**/app/**/page.tsx` or `**/app/**/[slug]/page.tsx` |
+| `appRouteSearchPage` | `**/app/**/page.tsx` or `**/app/**/[slug]/page.tsx` |
+| `appRouteLayout` | `**/app/**/layout.tsx` |
+| `appRouteMetadata` | `**/app/**/page.tsx` or `**/app/**/layout.tsx` |
+| `appRouteStaticParams` | `[slug]/page.tsx`, `[slug]/layout.tsx`, or `[slug]/route.ts` |
 
 See the full list of filters and prefixes in the [snippets file](snippets/typescriptreact/nextjs.code-snippets).
 
@@ -58,25 +60,24 @@ See the full list of filters and prefixes in the [snippets file](snippets/typesc
 2. In VS Code, press `Ctrl+Shift+P` and run `Extensions: Install from VSIX...`
 3. Select the downloaded file and click Open
 
-## Contributingdetailed guidelines on how to:
-- Report bugs
-- Request features
-- Submit pull requests
-- Follow code standards
+## Contributing
+
+Contributions are welcome. Please read the [Contributing Guide](CONTRIBUTING.md) for details on:
+
+- reporting bugs
+- requesting new snippets or improvements
+- submitting pull requests
+- following code standards and project structure
 
 ## Support
 
-- 📚 [Documentation](CONTRIBUTING.md)
-- 🐛 [Report Issues](https://github.com/hedge-code/nextjs-app-router-snippets/issues)
-- 💡 [Request Features](https://github.com/hedge-code/nextjs-app-router-snippets/issues)
-- 📄 [View Changelog](CHANGELOG.md)
+- 🐛 [Issues](https://github.com/hedge-code/nextjs-app-router-snippets/issues)
+- 💡 [Feature Requests](https://github.com/hedge-code/nextjs-app-router-snippets/issues)
+- 📄 [Changelog](CHANGELOG.md)
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE) – see the [LICENSE](LICENSE) file for details.
 
----
 
-**Made with ❤️ for the Next.js community
-
-**Enjoy faster Next.js development with App Router snippets!**
+_Maintained by the community. Contributions are welcome._
