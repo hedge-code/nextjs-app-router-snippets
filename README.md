@@ -37,6 +37,8 @@ Snippets for faster and consistent development with the Next.js App Router.
 | `appRouteLayout` | `**/app/**/layout.tsx` |
 | `appRouteMetadata` | `**/app/**/page.tsx` or `**/app/**/layout.tsx` |
 | `appRouteStaticParams` | `[slug]/page.tsx`, `[slug]/layout.tsx`, or `[slug]/route.ts` |
+| `appRouteAction` | `**/app/**/page.tsx` , `**/lib/**/*.ts`, `**/app/**/actions.ts` or `**/actions/**/*.ts` |
+| `appRouteClientComponent` | `**/ui/**/*.tsx`, `**/*provider.tsx` or `**/components/**/*.tsx` |
 
 See the full list of filters and prefixes in the [snippets file](snippets/typescriptreact/nextjs.code-snippets).
 
