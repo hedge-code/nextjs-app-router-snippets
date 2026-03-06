@@ -2,7 +2,7 @@
   "name": "nextjs-app-router-snippets",
   "displayName": "Next.js App Router Snippets",
   "description": "Supercharge your Next.js workflow with snippets crafted for the App Router era.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "author": {
     "name": "HedgeCode"
