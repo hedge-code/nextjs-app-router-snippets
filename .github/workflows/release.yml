@@ -10,7 +10,32 @@ on:
   workflow_dispatch:
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build VSIX package
+        run: npx vsce package
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: vscode-extension
+          path: "*.vsix"
+
   release_and_publish:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
