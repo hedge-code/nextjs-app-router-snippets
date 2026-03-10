@@ -167,6 +167,52 @@ This project uses GitHub Actions to automate building, testing, and releasing th
 * Contributors do not need to trigger these workflows manually.  
 * Just open a pull request — maintainers handle tagging and releasing.
 
+## Versioning
+
+This project follows Semantic Versioning (SemVer) using the format:
+
+```
+MAJOR.MINOR.PATCH
+```
+
+### What each number means
+| Component |	Purpose |	Examples |
+| MAJOR |	Breaking changes, removed or incompatible snippet behavior |	2.0.0 |
+| MINOR |	Backwards‑compatible features, new snippets |	1.3.0 |
+| PATCH |	Bug fixes, small improvements, documentation updates |	1.3.4 |
+
+### Release tagging
+
+New releases are published by creating a Git tag in the format:
+
+```
+vMAJOR.MINOR.PATCH
+```
+
+#### Example
+```
+git tag v1.4.0
+git push origin v1.4.0
+```
+
+Tagging a version triggers the automated release workflow, which:
+* generates the changelog,
+* publishes the extension to the VS Code Marketplace,
+* creates a GitHub Release with the .vsix package.
+
+### Commit types and version bumps
+
+This project uses Conventional Commits, which determine how the version is incremented:
+* `feat:` → MINOR version bump
+* `fix:` → PATCH version bump
+* `docs:`, `chore:`, `style:`, `refactor:`, `test:` → usually PATCH
+* `feat!` or any commit containing `BREAKING CHANGE:` → MAJOR version bump
+
+### Changelog
+
+The changelog is generated automatically based on commit history and tags.
+No manual updates are required.
+
 ## Code of Conduct
 
 Please be respectful and considerate in all interactions. See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for details.
