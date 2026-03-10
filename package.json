@@ -1,12 +1,13 @@
 {
   "name": "nextjs-app-router-snippets",
   "displayName": "Next.js App Router Snippets",
-  "description": "Supercharge your Next.js workflow with snippets crafted for the App Router era.",
+  "description": "Snippets for faster and consistent development with the Next.js App Router.",
   "version": "0.2.0",
   "license": "MIT",
   "author": {
     "name": "HedgeCode"
   },
+  "icon": "images/icon.png",
   "homepage": "https://github.com/hedge-code/nextjs-app-router-snippets#readme",
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "url": "https://github.com/hedge-code/nextjs-app-router-snippets/issues"
   },
   "keywords": [
+    "next",
     "nextjs",
     "next.js",
     "snippets",
@@ -31,7 +33,6 @@
     "typescript",
     "react",
     "vscode",
-    "extension",
     "productivity"
   ],
   "contributes": {
