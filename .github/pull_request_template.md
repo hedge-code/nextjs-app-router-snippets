@@ -1,40 +1,32 @@
-## Description
+## Summary
 
-Please include a summary of the changes and related context. Explain any specific motivations or issues that this PR addresses.
+Briefly describe **what** was changed and **why**.  
+If this PR addresses a specific problem or request, mention it here.
 
-## Type of Change
+## How to Test
 
-Please mark the relevant option:
+Provide clear steps to verify the changes:
+1. ...
+2. ...
+3. Expected result: ...
 
-- [ ] Bug fix (non-breaking change that fixes an issue)
-- [ ] New feature (non-breaking change that adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to change)
-- [ ] Documentation update
+Include any edge cases or additional scenarios worth checking.
 
-## Changes Made
+## Screenshots / Recordings (optional)
 
-List the key changes in this PR:
-
-- Change 1
-- Change 2
-- Change 3
-
-## Testing
-
-Please describe any testing you've done to verify your changes work as expected.
-
-- [ ] Tested in VS Code version: (e.g., 1.109.0)
-- [ ] Tested on OS: (e.g., Windows, macOS, Linux)
-- [ ] Snippet(s) activated correctly
-- [ ] No side effects observed
+Add screenshots, screen recordings, or logs if they help illustrate the change.
 
 ## Checklist
 
+- [ ] Code runs correctly and passes basic manual testing
+- [ ] The change follows the project's existing style and structure
+- [ ] Documentation has been added or updated (if applicable)
+- [ ] No regressions or unintended side effects were introduced
 - [ ] I have read the [CONTRIBUTING.md](../CONTRIBUTING.md) file
-- [ ] I have followed the existing code style and structure
-- [ ] I have updated documentation if necessary (README, CHANGELOG, etc.)
-- [ ] My changes do not break any existing functionality
-- [ ] I have tested my changes
+
+## Breaking Changes
+
+If **yes**, describe what consumers of the project must update or adjust.
 
 ## Related Issues
 
