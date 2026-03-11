@@ -33,13 +33,13 @@ jobs:
         run: npm install
 
       - name: Build VSIX package
-        run: npx @vscode/vsce package --out extension.vsix
+        run: npx @vscode/vsce package
 
       - name: Upload artifact
         uses: actions/upload-artifact@v6
         with:
           name: vscode-extension
-          path: extension.vsix
+          path: "*.vsix"
 
   release_and_publish:
     needs: build
@@ -50,18 +50,11 @@ jobs:
         uses: actions/download-artifact@v8
         with:
           name: vscode-extension
-          path: .
-
-      - name: Debug files
-        run: |
-          echo "Workspace contents:"
-          ls -R .
 
       - name: Checkout main
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-          ref: main
 
       - name: Generate changelog for release
         uses: orhun/git-cliff-action@v4
@@ -83,10 +76,12 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: extension.vsix
+          files: "*.vsix"
+          draft: false
+          prerelease: false
           body: ${{ steps.changelog.outputs.content }}
 
       - name: Publish to Marketplace
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
-        run: npx @vscode/vsce publish --packagePath extension.vsix --pat "$VSCE_PAT"
+        run: npx @vscode/vsce publish --pat "$VSCE_PAT"

@@ -39,7 +39,7 @@ jobs:
           git commit -m "Update changelog" || exit 0
 
       - name: Force push changelog branch
-        run: git push origin chore/changelog --force
+        run: git push origin HEAD:chore/changelog --force
 
       - name: Create pull request
         id: cpr
