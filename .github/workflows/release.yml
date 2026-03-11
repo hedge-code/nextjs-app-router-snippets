@@ -50,7 +50,12 @@ jobs:
         uses: actions/download-artifact@v8
         with:
           name: vscode-extension
-          path: vscode-extension
+          path: .
+
+      - name: Debug files
+        run: |
+          echo "Workspace contents:"
+          ls -R .
 
       - name: Checkout main
         uses: actions/checkout@v6
@@ -78,10 +83,10 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: vscode-extension/extension.vsix
+          files: extension.vsix
           body: ${{ steps.changelog.outputs.content }}
 
       - name: Publish to Marketplace
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
-        run: npx @vscode/vsce publish --packagePath vscode-extension/extension.vsix --pat "$VSCE_PAT"
+        run: npx @vscode/vsce publish --packagePath extension.vsix --pat "$VSCE_PAT"
