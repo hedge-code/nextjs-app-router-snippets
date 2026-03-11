@@ -8,6 +8,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  actions: write
 
 jobs:
   changelog:
@@ -29,7 +30,7 @@ jobs:
           OUTPUT: CHANGELOG.md
           GITHUB_REPO: ${{ github.repository }}
 
-      - name: Commit changelog
+      - name: Prepare changelog branch
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
@@ -38,14 +39,15 @@ jobs:
           git commit -m "Update changelog" || exit 0
 
       - name: Force push changelog branch
-        run: |
-          git push origin chore/changelog --force
+        run: git push origin chore/changelog --force
 
-      - name: Create PR to main
-        uses: peter-evans/create-pull-request@v8
+      - name: Create pull request
+        id: cpr
+        uses: peter-evans/create-pull-request@v6
         with:
           branch: chore/changelog
           base: main
           title: "Update changelog"
           body: "Automated changelog update for the latest release."
           labels: changelog
+          delete-branch: true
