@@ -30,7 +30,7 @@ jobs:
           npm version "$VERSION" --no-git-tag-version
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build VSIX package
         run: npx @vscode/vsce package
@@ -51,7 +51,7 @@ jobs:
         with:
           name: vscode-extension
 
-      - name: Checkout main
+      - name: Checkout repository
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
@@ -84,4 +84,7 @@ jobs:
       - name: Publish to Marketplace
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
-        run: npx @vscode/vsce publish --pat "$VSCE_PAT"
+        run: |
+          FILE=$(ls *.vsix)
+          echo "Publishing $FILE"
+          npx @vscode/vsce publish --packagePath "$FILE" --pat "$VSCE_PAT"
