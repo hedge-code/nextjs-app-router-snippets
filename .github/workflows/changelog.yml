@@ -1,6 +1,7 @@
 name: Generate Changelog
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - "v*"
@@ -14,11 +15,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout main
+      - name: Checkout repository
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-          ref: main
+          ref: ${{ github.event.repository.default_branch }}
 
       - name: Generate changelog
         uses: orhun/git-cliff-action@v4
@@ -27,25 +28,22 @@ jobs:
           args: --verbose
         env:
           OUTPUT: CHANGELOG.md
-          GITHUB_REPO: ${{ github.repository }}
 
       - name: Prepare changelog branch
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git checkout -B chore/changelog
+          set +e
           git add CHANGELOG.md
-          git commit -m "Update changelog" || exit 0
-
-      - name: Force push changelog branch
-        run: git push origin HEAD:chore/changelog --force
+          git commit -m "chore(changelog): automatic changelog upadate"
+          git push HEAD:chore/changelog -f
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v8
         with:
           branch: chore/changelog
-          base: main
           title: "chore(changelog): automatic update"
           body: "This PR contains changelog update for the latest release."
+          author: ${{ github.actor }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
           labels: changelog
           delete-branch: true

@@ -31,5 +31,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v6
         with:
-          name: vscode-extension
+          name: vscode-snippets-${{ steps.exp.outputs.date }}
           path: "*.vsix"
+          retention-days: 3

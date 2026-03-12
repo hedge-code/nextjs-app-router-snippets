@@ -23,14 +23,15 @@ jobs:
           node-version: 24
           cache: 'npm'
 
+      - name: Install dependencies
+        run: npm ci
+
       - name: Sync version from tag
         run: |
           TAG="${GITHUB_REF#refs/tags/}"
           VERSION="${TAG#v}"
+          echo "VERSION=$VERSION"
           npm version "$VERSION" --no-git-tag-version
-
-      - name: Install dependencies
-        run: npm ci
 
       - name: Build VSIX package
         run: npx @vscode/vsce package
@@ -38,19 +39,15 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v6
         with:
-          name: vscode-extension
+          name: vscode-snippets
           path: "*.vsix"
+          retention-days: 1
 
   release_and_publish:
     needs: build
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v8
-        with:
-          name: vscode-extension
-
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
@@ -63,7 +60,6 @@ jobs:
           args: --verbose --latest
         env:
           OUTPUT: CHANGELOG.md
-          GITHUB_REPO: ${{ github.repository }}
 
       - name: Read changelog
         id: changelog
@@ -72,6 +68,14 @@ jobs:
           echo "content<<EOF" >> $GITHUB_OUTPUT
           echo "$CONTENT" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Download artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: vscode-snippets
+          path: .
+
+      - run: ls
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
@@ -84,7 +88,4 @@ jobs:
       - name: Publish to Marketplace
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
-        run: |
-          FILE=$(ls *.vsix)
-          echo "Publishing $FILE"
-          npx @vscode/vsce publish --packagePath "$FILE" --pat "$VSCE_PAT"
+        run: npx @vscode/vsce publish --packagePath "$FILE" --pat "$VSCE_PAT"
