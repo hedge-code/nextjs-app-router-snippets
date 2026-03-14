@@ -1,51 +1,37 @@
-# Change Log
+## [unreleased]
 
-All notable changes to this extension will be documented in this file.
+### ⚙️ Miscellaneous Tasks
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
+- *(repo)* Improve contributing guide, refactor workflows, update PR template and package metadata (#8)
+- *(repo)* Add version section to contributing (#9)
+- *(release)* Bump version to v0.2.1 (#10)
+- *(ci/fix)* Release (#11)
+- *(ci/fix)* Changelog and release with tag related package versions (#12)
+- *(ci/fix)* Revert dynamic versions in build and fix release (#13)
+- *(ci/fix)* Release file location (#14)
+- *(ci/fix)* Fix relase and changelog (#15)
+- *(ci/fix)* Debug release (#16)
+- *(ci/fix)* Release configuration (#17)
+- *(ci/fix)* Package path in publication workflow (#18)
+- *(ci/fix)* Retention-days
 ## [0.2.0] - 2026-03-06
 
-### Added
+### 🚀 Features
 
-#### Snippets
+- Add NextJsAppRouterAction and NextJsAppRouterClientComponent snippets (#6)
 
-- server action typed by `appRouteAction`
-- client component typed by `appRouteClientComponent`
+### 📚 Documentation
 
-### Docs
+- Add SECURITY.md with responsible disclosure guidelines (#1)
+- Improve README with clearer usage and snippet context (#5)
 
-- improved README with clearer usage and snippet context
-- added SECURITY.md
+### ⚙️ Miscellaneous Tasks
 
-### CI
-
-- restricted GitHub Actions permissions to the minimum required
-
-### Chore
-
-- normalized indentation across all snippets
-
-[v0.1.0...v0.2.0](https://github.com/hedge-code/nextjs-app-router-snippets/compare/v0.1.0...v0.2.0)
-
-
+- Restrict GitHub Actions permissions to minimum required (#3)
+- Normalize indentation in snippets (#4)
+- *(release)* Bump version to v0.2.0 (#7)
 ## [0.1.0] - 2026-03-02
 
-### Added
+### 🚀 Features
 
-- `notFound` page snippet for Next.js App Router
-- `unauthorized` page snippet for Next.js App Router
-- `forbidden` page snippet for Next.js App Router
-- Error boundary snippet for Next.js App Router
-- Segment fallback page snippet for Next.js App Router
-- `loading` page snippet for Next.js App Router
-- Page metadata snippet for Next.js App Router
-- Basic page snippet for Next.js App Router
-- Page with search parameters snippet for Next.js App Router
-- Page with slug snippet for Next.js App Router
-- Page with slug and search parameters snippet for Next.js App Router
-- Dynamic layout snippet for Next.js App Router
-- Layout metadata snippet for Next.js App Router
-- Layout snippet for Next.js App Router
-- Static params generator snippet for Next.js App Router
+- Initial release with 15 Next.js App Router snippets
